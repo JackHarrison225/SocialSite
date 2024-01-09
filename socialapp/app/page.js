@@ -1,7 +1,6 @@
 "use client";
-//import { useState } from "react"
+import {useState} from "react"
 import AuthBox from "./componants/AuthBox"
-
 
 export default function Home() {
   return (
