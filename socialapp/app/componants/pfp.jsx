@@ -12,6 +12,7 @@ const ProfilePic = ({
       src={imageLink} alt="PFP" 
       />
     </div>
+
   )
 }
 
