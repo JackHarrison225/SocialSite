@@ -1,0 +1,14 @@
+{
+     "[dockercompose]": {
+          "editor.tabSize": 5
+     },
+     "[yaml]": {
+          "editor.tabSize": 5
+     },
+     "[makefile]": {
+          "editor.insertSpaces": true
+     },
+     "[go]": {
+          "editor.insertSpaces": true
+     }
+}
