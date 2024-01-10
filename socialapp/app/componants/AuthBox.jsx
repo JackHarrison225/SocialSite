@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 
 const AuthBox = () => {
+  
   return (
     <div>
       <h3 className='text-center text-3xl'>Sign In To Dino Book</h3>
@@ -13,7 +14,7 @@ const AuthBox = () => {
           <input name='Password' type='password' className='bg-[#b9d9f8] rounded-full text-center placeholder-[#808080]' placeholder='********'/>
           <a className='ml-[2%]'>Forgot Username or password?</a>
           <div className='flex gap-5 justify-center pt-[10px]'>
-            <button className='bg-[#4CAF50] py-1 px-2 rounded-full'>Sign Up</button>
+            <Link href={"./createUserPage"} className='bg-[#4CAF50] py-1 px-2 rounded-full'>Sign Up</Link>
             <button className='bg-[#4CAF50] py-1 px-2 rounded-full'>Sign In</button>
           </div>     
       </form>
