@@ -15,7 +15,7 @@ const AuthBox = () => {
      }
      
      useEffect(() => {
-          const userList = JSON.parse(localStorage.getItem('users'));
+          const userList = JSON.parse(localStorage.getItem('user'));
           if (!userList) return;
           setUsers(userList);
      }, [])

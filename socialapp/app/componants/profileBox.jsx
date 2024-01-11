@@ -1,13 +1,28 @@
-import React from 'react'
+'use client'
+import React, {useEffect} from 'react'
 import ProfilePic from './pfp'
 import PostCard from './postCard'
 
 const ProfileBox = (
 ) => {
+     
+     const getLink = () => {
+          useEffect(() => {
+               let userList = JSON.parse(localStorage.getItem('user'));
+               let currentUser = JSON.parse(localStorage.getItem("currentUser"))
+          
+               for(let i in userList){
+                    if(userList[i].name == currentUser.name && userList[i].password == currentUser.password){
+                         imgLink = userList[i].PFP
+                         return(imgLink)
+                    }
+               }
+          }, [])
+     }
   return (
      <div className='flex flex-col bg-[#F5F5DC] mx-[144px] shadow-2xl rounded-lg items-center py-10 gap-10'> 
           <ProfilePic 
-          imageLink="https://i.postimg.cc/26tYPKrp/ebb935df-9554-4c11-89ca-ebc0aa559211.png"
+          imageLink={getLink} //getLink()
           className1="w-40 h-40 bg-[#ffffff] rounded-full overflow-x-hidden overflow-y-hidden"
           className2="min-w-[300px] min-h-[300px] ml-[-60px] mt-[-60px]"
           />
