@@ -15,7 +15,7 @@ const AuthBox = () => {
      }
      
      useEffect(() => {
-          const userList = JSON.parse(localStorage.getItem('user'));
+          const userList = JSON.parse(localStorage.getItem('users'));
           if (!userList) return;
           setUsers(userList);
      }, [])
@@ -49,6 +49,7 @@ const AuthBox = () => {
           event.preventDefault();
           if (!userObject.name || !userObject.password) {
                console.log("there is an error no input");
+               return
           }
           checkInput()
      };
