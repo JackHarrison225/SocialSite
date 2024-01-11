@@ -11,12 +11,12 @@ const PostCard = ({
     
     return (
     <div>
-     <div className="w-48 h-72 rounded-lg overflow-hidden relative">
+     <div className="w-1/4 h-96 rounded-lg overflow-hidden relative">
         <img src={image} alt={text} className="w-full h-full object-cover"/>
         {liked ? <ThumbsUp
             className="absolute bottom-2 right-2 text-green-600"
             size={24}
-        /> : <X
+        /> : <ThumbsUp
             className="absolute bottom-2 right-2 text-white"
             size={24}
         /> }
