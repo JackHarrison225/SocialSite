@@ -14,7 +14,7 @@ const handleInputChange = (event) => {
 	})
 }
 const setCurrentUser = () => {
-	const currentUser = {name : userObject.name , password : userObject.password};
+	let currentUser = {name : userObject.name , password : userObject.password};
 	localStorage.setItem('currentUser', JSON.stringify(currentUser));
 	return console.log(currentUser);
 };
