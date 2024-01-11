@@ -1,7 +1,7 @@
 'use client';
 import {useState, useEffect} from 'react'
 const UserCreateBox = () => {
-const [userObject, setuserObject] = useState({name:"", password:"", password2:"" , posts:[], PFP: ""})
+const [userObject, setuserObject] = useState({name:"", password:"", password2:"" , posts:[], PFP: "", status: ""})
 const [isSuccess, setIsSuccess] = useState(false)
 const [isError, setIsError] = useState(false)
 const [user, setUser] = useState([])
