@@ -49,6 +49,7 @@ const AuthBox = () => {
           event.preventDefault();
           if (!userObject.name || !userObject.password) {
                console.log("there is an error no input");
+               return
           }
           checkInput()
      };

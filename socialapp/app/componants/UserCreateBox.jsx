@@ -1,7 +1,7 @@
 'use client';
 import {useState, useEffect} from 'react'
 const UserCreateBox = () => {
-const [userObject, setuserObject] = useState({})
+const [userObject, setuserObject] = useState({name:"", password:"", password2:"" , posts:[], PFP: "", status: ""})
 const [isSuccess, setIsSuccess] = useState(false)
 const [isError, setIsError] = useState(false)
 const [user, setUser] = useState([])
@@ -13,7 +13,11 @@ const handleInputChange = (event) => {
 		[event.target.name]: event.target.value
 	})
 }
-
+const setCurrentUser = () => {
+	let currentUser = {name : userObject.name , password : userObject.password};
+	localStorage.setItem('currentUser', JSON.stringify(currentUser));
+	return console.log(currentUser);
+};
 const resetInputs = () =>  {
      const inputs = document.getElementById("my-form").elements;
 
@@ -37,19 +41,24 @@ const resetInputs = () =>  {
 			}, 3000);
 			return;
 		}
-		if(userObject.password == userObject.password2){
+		for(let i in user){
+			if(user[i].name == userObject.name){return console.log("user exists")}
+		}
+		if(userObject.password == userObject.password2 && /^(?=.*[a-zA-Z0-9])(?=.*[\W_]).{8,20}$/g.test(userObject.password) == true ){
+			setCurrentUser()
 			setUser((prevUser) => {
 				const updatedUser = [...prevUser, userObject];
 				localStorage.setItem('user', JSON.stringify(updatedUser));
 				return updatedUser;
 			});
+			
 			setIsSuccess(true);
 			setuserObject({});
 			setTimeout(() => {
 				resetInputs();
 				setIsSuccess(false);
 			}, 3000);
-		}
+		}return document.location.href=("./profilePage")
 	};
   	return (
 		<div>
