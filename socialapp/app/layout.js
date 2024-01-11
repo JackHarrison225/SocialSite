@@ -1,12 +1,11 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Logo from './componants/Logo'
-import NavBar from './componants/NavBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Tick Talk',
+  title: 'Dino Book',
   description: 'social media app.',
 }
 

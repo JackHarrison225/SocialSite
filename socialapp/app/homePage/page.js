@@ -8,7 +8,7 @@ const Page = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const storedPosts = localStorage.getItem('posts');
+    const storedPosts = localStorage.getItem('globalPosts');
 
     if (storedPosts) {
       const parsedPosts = JSON.parse(storedPosts);
@@ -23,9 +23,9 @@ const Page = () => {
         <div className='flex flex-wrap gap-10 mt-28'>
           {posts.map((post) => (
             <PostCard
-              key={post.id}
-              text={post.title}
-              image={post.image}
+              key={post.post.id}
+              text={post.post.title}
+              image={post.post.image}
               liked={post.liked}
               user={post.user}
             />

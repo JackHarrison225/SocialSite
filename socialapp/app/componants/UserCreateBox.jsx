@@ -33,6 +33,7 @@ const resetInputs = () =>  {
 	}, [])
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		let userCreated = false
 		if (!userObject.name || !userObject.password) {
 			console.log("there is an error no input");
 			setIsError(true);
@@ -51,14 +52,20 @@ const resetInputs = () =>  {
 				localStorage.setItem('user', JSON.stringify(updatedUser));
 				return updatedUser;
 			});
-			
+			console.log("user Create")
+			userCreated = true
+			console.log(userCreated)
 			setIsSuccess(true);
 			setuserObject({});
 			setTimeout(() => {
 				resetInputs();
 				setIsSuccess(false);
-			}, 3000);
-		}return document.location.href=("./profilePage")
+			}, 3000); 
+			
+		}
+		console.log(userCreated)
+
+		if (userCreated == true){return( document.location.href=("./profilePage"))}
 	};
   	return (
 		<div>

@@ -1,11 +1,35 @@
 'use client'
-import React, {useEffect} from 'react'
+import React, { useEffect, useState } from 'react'
 import ProfilePic from './pfp'
 import PostCard from './PostCard'
 
 const ProfileBox = (
 ) => {
-     
+     const [posts, setPosts] = useState([]);
+
+     useEffect(() => {
+       const storedPosts = localStorage.getItem('globalPosts');
+   
+       if (storedPosts) {
+         const parsedPosts = JSON.parse(storedPosts);
+         setPosts(parsedPosts);
+       }
+     }, []);
+     const checkPost = (post) => {
+          let currentUser = JSON.parse(localStorage.getItem("currentUser"))
+          if (post.user == currentUser.name){
+               return(
+                    <PostCard
+                    key={post.post.id}
+                    text={post.post.title}
+                    image={post.post.image}
+                    liked={post.liked}
+                    user={post.user}
+                    />
+               )
+          }
+     }
+          
      const getLink = () => {
           useEffect(() => {
                let userList = JSON.parse(localStorage.getItem('user'));
@@ -31,11 +55,15 @@ const ProfileBox = (
 
                </div>{/* status */}
                <div className='shadow-lg w-full bg-[#F5F5DC] rounded-lg h-full'>
+                    
 
                </div>{/* box for user info */}
           </div>
           <div className='flex gap-10 bg-[#F5F5DC] h-full w-full px-10'>
                {/* area for user Posts allow to delete them here as well. */}
+               {posts.map((post) => (
+                    checkPost(post)
+               ))}
 
           </div>
      
