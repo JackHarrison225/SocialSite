@@ -1,6 +1,7 @@
 "use client";
 
 import {useState, useEffect} from 'react';
+import NavBar from '../componants/NavBar';
 
 const page = () => {
 
@@ -50,6 +51,8 @@ const handleSubmit = (event) => {
 };
 
   return (
+    <div>
+      <NavBar />
      <div className='flex flex-col items-center'>
         <div>
           <h1 className='text-5xl font-bold pt-36 text-center'>Create a Post</h1>
@@ -70,6 +73,7 @@ const handleSubmit = (event) => {
           </button>
         </form>
      </div>
+    </div>
   )
   }
 
