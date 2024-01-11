@@ -4,6 +4,12 @@ import React, { useEffect } from 'react'
 import ProfilePic from './pfp'
 
 function NavBar() {
+     const setCurrentUser = () => {
+          console.log("User gone")
+          let currentUser = {name : "" , password : ""};
+          localStorage.setItem('currentUser', JSON.stringify(currentUser));
+          return
+     };
      const getLink = () => {
           useEffect(() => {
                let userList = JSON.parse(localStorage.getItem('user'));
