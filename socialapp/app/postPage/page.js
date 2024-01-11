@@ -1,11 +1,12 @@
 "use client";
 
 import {useState, useEffect} from 'react';
+import NavBar from '../componants/NavBar';
 
 const page = () => {
 
   const [postObject, setPostObject] = useState({})
-  const [posts, setPosts] = useState([])
+  const [globalPosts, setPosts] = useState([])
   const [isError, setIsError] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
@@ -15,12 +16,15 @@ const page = () => {
         ...prevPostObject,
         [event.target.name]: event.target.value
     }));
-}
-
-  useEffect(() => {
-    const posts = JSON.parse(localStorage.getItem('posts'));
-    if (!posts) return;
-    setPosts(posts);
+}  
+const getCurrentUser = () =>{
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    return(currentUser.name)
+  }
+useEffect(() => {
+    const globalPosts = JSON.parse(localStorage.getItem('globalPosts'));
+    if (!globalPosts) return;
+    setPosts(globalPosts);
 }, [])
 
 const handleSubmit = (event) => {
@@ -37,9 +41,10 @@ const handleSubmit = (event) => {
   }
 
   setPosts((prevPosts) => {
-    const updatedPosts = [...prevPosts, postObject];
-    localStorage.setItem('posts', JSON.stringify(updatedPosts));
-    return updatedPosts;
+    let postObject2 = {user: getCurrentUser(), post : postObject}
+    const updatedPosts = [...prevPosts, postObject2];
+    localStorage.setItem('globalPosts', JSON.stringify(updatedPosts));
+    return postObject2;
   });
 
   setIsSuccess(true);
@@ -47,9 +52,12 @@ const handleSubmit = (event) => {
   setTimeout(() => {
       setIsSuccess(false);
   }, 3000);
+  // return(document.location.href=("./homePage"))
 };
 
   return (
+    <div>
+      <NavBar />
      <div className='flex flex-col items-center'>
         <div>
           <h1 className='text-5xl font-bold pt-36 text-center'>Create a Post</h1>
@@ -70,6 +78,7 @@ const handleSubmit = (event) => {
           </button>
         </form>
      </div>
+    </div>
   )
   }
 
