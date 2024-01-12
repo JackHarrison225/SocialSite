@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import NavBar from '../componants/NavBar';
-import PostCard from '../componants/PostCard';
+import PostCard from '../componants/postCard';
 const Page = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
