@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import ProfilePic from './pfp'
-import PostCard from './postCard'
+import PostCard from './PostCard.jsx'
 
 const ProfileBox = (
 ) => {
