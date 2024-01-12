@@ -64,11 +64,13 @@ const handleSubmit = (event) => {
         </div>
         <form className='w-1/2 flex flex-col mt-10 gap-4' onSubmit={handleSubmit}>
           <input
+            className='rounded-full py-1 px-2'
             placeholder='Enter text' name='text'
             onChange={handleInputChange}
             value={postObject.text}
           />
           <input
+            className='rounded-full py-1 px-2'
             placeholder='Enter image URL' name='image'
             onChange={handleInputChange}
             value={postObject.image}
