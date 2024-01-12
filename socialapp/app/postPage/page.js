@@ -42,7 +42,7 @@ const handleSubmit = (event) => {
 
   setPosts((prevPosts) => {
     let postObject2 = {user: getCurrentUser(), post : postObject}
-    const updatedPosts = [...prevPosts, postObject2];
+    const updatedPosts = [...prevPosts, postObject2]
     localStorage.setItem('globalPosts', JSON.stringify(updatedPosts));
     return postObject2;
   });
@@ -52,7 +52,7 @@ const handleSubmit = (event) => {
   setTimeout(() => {
       setIsSuccess(false);
   }, 3000);
-  // return(document.location.href=("./homePage"))
+  return(document.location.href=("./homePage"))
 };
 
   return (
