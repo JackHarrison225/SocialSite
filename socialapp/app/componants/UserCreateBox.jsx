@@ -1,5 +1,7 @@
 'use client';
 import {useState, useEffect} from 'react'
+import Link from 'next/link'
+
 const UserCreateBox = () => {
 const [userObject, setuserObject] = useState({name:"", password:"", password2:"" , posts:[], PFP: "", status: ""})
 const [isSuccess, setIsSuccess] = useState(false)
@@ -70,7 +72,7 @@ const resetInputs = () =>  {
   	return (
 		<div>
 			<h3 className='text-center text-3xl'>Sign Up For Dino Book</h3>
-			<form className='bg-[#71df99] w-96 h-56 rounded-xl flex flex-col px-5 py-5'
+			<form className='bg-[#71df99] w-96 h-56 rounded-xl flex flex-col p-5'
 			id="my-form" onSubmit={handleSubmit}>
 				<label htmlFor="name" className='ml-[2%]'>Email or Username:</label>
 				<input name='name' className='bg-[#b9d9f8] rounded-full text-center placeholder-[#808080]' 
@@ -85,10 +87,10 @@ const resetInputs = () =>  {
 				<input  name='password2' type='password' 
 				className='bg-[#b9d9f8] rounded-full text-center placeholder-[#808080]' 
 				placeholder='********' onChange={handleInputChange} value={userObject.password2}/>
-
 				<div className='flex gap-5 justify-center pt-[10px]'>
 					<button className='bg-[#4CAF50] py-1 px-2 rounded-full' 
 					type='submit' >Sign Up</button>
+					<Link href={"./"} className='bg-[#4CAF50] py-1 px-2 rounded-full'>Sign In</Link>
 				</div>     
 			</form>
 		</div>

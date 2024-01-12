@@ -42,7 +42,7 @@ const AuthBox = () => {
                     }
                }
                if(valid == false){return console.log("there is an error inncorrect email ");}
-               else if(valid == true){return document.location.href=("./profilePage")}
+               else if(valid == true){return document.location.href=("../profilePage")}
           }
 
      const handleSubmit = (event) => {

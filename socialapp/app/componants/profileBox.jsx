@@ -7,6 +7,9 @@ const ProfileBox = (
 ) => {
      const [posts, setPosts] = useState([]);
 
+     const edit = () => {
+          return(document.location.href="./editUserPage")
+     }
      useEffect(() => {
        const storedPosts = localStorage.getItem('globalPosts');
    
@@ -19,13 +22,16 @@ const ProfileBox = (
           let currentUser = JSON.parse(localStorage.getItem("currentUser"))
           if (post.user == currentUser.name){
                return(
-                    <PostCard
-                    key={post.post.id}
-                    text={post.post.title}
-                    image={post.post.image}
-                    liked={post.liked}
-                    user={post.user}
-                    />
+                    <div>
+                         <PostCard
+                         key={post.post.id}
+                         text={post.post.title}
+                         image={post.post.image}
+                         liked={post.liked}
+                         user={post.user}
+                         />
+                         <button>Delete</button>
+                    </div>
                )
           }
      }
@@ -44,7 +50,10 @@ const ProfileBox = (
           }, [])
      }
   return (
-     <div className='flex flex-col bg-[#F5F5DC] mx-[144px] shadow-2xl rounded-lg items-center py-10 gap-10'> 
+     <div className='flex flex-col bg-[#F5F5DC] mx-[144px] shadow-2xl rounded-lg items-center pb-10 gap-10'> 
+          <div className='w-full p-2'>
+               <button onClick={edit} className=' float-right px-2 py-1 rounded-lg bg-green-200'>edit</button>
+          </div>
           <ProfilePic 
           imageLink={getLink} //getLink()
           className1="w-40 h-40 bg-[#ffffff] rounded-full overflow-x-hidden overflow-y-hidden"
@@ -52,6 +61,7 @@ const ProfileBox = (
           />
           <div className='flex gap-10 bg-[#F5F5DC] h-60 w-full px-10'>
                <div className='w-1/3 bg-[#F5F5DC] h-full rounded-lg shadow-lg'>
+                   
 
                </div>{/* status */}
                <div className='shadow-lg w-full bg-[#F5F5DC] rounded-lg h-full'>
