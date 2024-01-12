@@ -27,7 +27,7 @@ const Page = () => {
               text={post.post.title}
               image={post.post.image}
               liked={post.liked}
-              user={post.user}
+              user={post.name}
             />
             ))}
         </div>
