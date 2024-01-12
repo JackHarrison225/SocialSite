@@ -61,6 +61,7 @@ const ProfileBox = (
           />
           <div className='flex gap-10 bg-[#F5F5DC] h-60 w-full px-10'>
                <div className='w-1/3 bg-[#F5F5DC] h-full rounded-lg shadow-lg'>
+                   
 
                </div>{/* status */}
                <div className='shadow-lg w-full bg-[#F5F5DC] rounded-lg h-full'>
